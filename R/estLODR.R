@@ -324,11 +324,12 @@ estLODR <- function(exDat,kind = "ERCC", prob=0.9){
     }
 
     annotLODRplot <- grid.arrange(arrangeGrob(grobs = list(LODRplot, my_table), 
-                                               ncol = 1, heights = c(2,0.5),))
+                                               ncol = 1, heights = c(2,0.5)))
+    dev.off()
     
     nam <- paste0("lodr",kind,"Plot")
     exDat$Figures$plotLODR <- annotLODRplot
-    #print(exDat$Figures$plotLODR)
+    
     names(exDat$Figures)[which(names(exDat$Figures) == "plotLODR")] <- nam
     
     nam <- paste("lodr.res",kind,sep = ".")
